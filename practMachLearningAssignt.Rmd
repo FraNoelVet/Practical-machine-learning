@@ -14,8 +14,10 @@ Data used for prediction were collected by different accelerometers. Those data 
 Data were loaded in work directory from https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv for the training set, and from 
 https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv for the test data, used for the programming assignment.
 
-Loading data in convenient variables. In the same time, 
-```r 
+Loading data in convenient variables. In the same time, loading the packages that will be needed for this analysis.  
+
+
+```{r, echo=T} 
 DB<-read.csv("pml-training.csv",header=T,na.strings=c("NA",""))
 testing<-read.csv("pml-testing.csv",header=T,na.strings=c("NA",""))
 
@@ -37,6 +39,7 @@ colNA<-colSums(essai)
 table(colNA)
 ```
 
+This indicates that columns contains either no NA's at all, or nearly nothing but NA's.  
 Using colNA, variables with a majority of NAs are discarded, as they would not be contributive. 
 
 ```{r, echo=T}
